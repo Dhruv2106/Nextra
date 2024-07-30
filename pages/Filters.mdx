@@ -1,0 +1,291 @@
+import Image from 'next/image'
+
+import { Cards, Card } from 'nextra/components'
+ 
+
+
+
+# Filters
+
+The top line of the trace shows the filter control panel, that is (almost) the same for all different view of the tool. The first line has 5 input boxes: Event, Gateway, Device, Command and Message. These are input for basic text search filters, where each of the inputs correspond to a column in the event view table. A text in any of these field will filter the data to show only log records that match all the entered criteria.
+<br></br>
+<Image src="/images/help-img-filters.png" alt="Filters" width={1000} height={500} />
+
+
+
+
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px' }}>
+  <h4 style={{backgroundColor: '#f2f2f2', padding: '20px',width: '100%', border: '1px solid black', borderRadius: '3px'}}>Filters - Event</h4>
+  <br></br>
+  <Cards style={{ margin:'10px',display: 'block', width: '1000px' }}>
+  <p>Event filter takes one or more events as input. Most common errors are --</p>
+   <table style={{ marginLeft: '10px', width: '50%', borderCollapse: 'collapse' }}>
+    <caption style={{ captionSide: 'top', fontWeight: 'bold', margin: '10px 0' }}>List of Events</caption>
+    <thead>
+      <tr>
+        <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Event</th>
+        <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Event</th>
+        <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style={{ border: '1px solid black', padding: '8px' }}>DL</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Downlink events</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>UL</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Uplink events</td>
+      </tr>
+      <tr>
+        <td style={{ border: '1px solid black', padding: '8px' }}>DLSTAT</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>DL Status</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>ULD</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Delayed uplinks</td>
+      </tr>
+      <tr>
+        <td style={{ border: '1px solid black', padding: '8px' }}>NWS2PXY</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Message sent from Network Server to DASS</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>GWREBOOT</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Gateways reboot events</td>
+      </tr>
+      <tr>
+        <td style={{ border: '1px solid black', padding: '8px' }}>PXY2NWS</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Message sent from NS to DASS</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>GWSTAT</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Gateway Stat</td>
+      </tr>
+      <tr>
+        <td style={{ border: '1px solid black', padding: '8px' }}>ERROR_NWS</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>NS Error</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>ERROR_OM</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>OM Error</td>
+      </tr>
+    </tbody>
+  </table>
+  </Cards>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h5>Event Filters - Advanced filters</h5>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>There are a few more advanced filters that can be performed using Event filter.</p>
+    <table style={{ width: '75%', borderCollapse: 'collapse' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', margin: '10px 0' }}>Events Filters - Advanced filters</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Filter</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings only uplink events.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>!UL</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events but uplinks.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL|DL</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings only uplink and downlink events.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DL,DLSTAT</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings only DL and DLSTAT. Similar to | (OR)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Gateway Filter</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>Gateway filter takes full gateway id or part of it to make a search. For example - 000000000B030704, 7076FFFFFE017AB2 are two gateways.</p>
+    <table style={{ width: '75%', borderCollapse: 'collapse' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', margin: '10px 0' }}>Gateway filters</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Filter</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>000000000B030704</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events for gateway 000000000B030704</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>704</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events for gateway 000000000B030704 and any other gateway matching 704 in the gateway id</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>000000000B030704,7076FFFFFE017AB2</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events for both gateways.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>!7076FFFFFE017AB2</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings events for all gateways but not this.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Deveui, Devaddr filter</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>Same as gateway filter except one additional. Since there are unknown packets also captured by Network server logs and trace reads and stores. For such packets, deveui is not known. In this case, when we want to avoid all such packets, use !empty filter as explained in the table below.</p>
+    <table style={{ width: '75%', borderCollapse: 'collapse' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', margin: '10px 0' }}>Deveui/DevAddr filters</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Filter</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>3338363069358F18</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events for device 3338363069358F18</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>9358</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events for device 3338363069358F18 and any other device matching 9358 in the device id</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>3338363069358F18,58A0CB0000100CC3</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings all events for both devices.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>!58A0CB0000100CC3</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings events for all devices but not this.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>!empty</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Brings events when there is a deveui present.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+     <h4>Command Filter</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>Applying this filter is the same as the Event filter. This performs a regex search.</p>
+    <p>Available commands - </p>
+    <table style={{ width: '50%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', marginBottom: '10px' }}>Command Filters</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Filter</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Filter</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>JoinReq</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Join Request events</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>JoinAccept</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Join Accept events</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UnConfUp</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Unconfirmed uplink</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>ConfUp</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Confirmed uplink</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UnConfDwn</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Unconfirmed downlink</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>ConfDown</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Confirmed downlink</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+      <h4>Message Filter</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>Same as command filter. Performs a regex search. You can search for Lora Mac commands such as LinkADRReq/Ans, NewChannelReq/Ans etc.</p>
+  </div>
+</Cards> 
+
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+      <h4>Date-time Filters</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>A filter can contain a time range in which all events with timestamps outside this range are filtered and not shown and not used in any statistical calculations. The range is defined as all timestamps between a 'from' time to the 'to' time. If nothing is specified in the 'to' field, the range goes to the end of the trace. Similar for the 'from' field, if not specified the range starts from the start of the trace.</p>
+    <br></br>
+    <Image src="/images/help-img-datetime.png" alt="Filters" width={500} height={500} />
+    <br /><br />
+    <p style={{ padding: '10px', backgroundColor: '#d9edf7', borderRadius: '3px' }}>By default, the 'from' date is populated and set to the date of the recent Saturday.</p>
+    <p>The date format is dd/mm/yyyy hh:mm:ss.</p>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+      <h4>Date-time Filters</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>A filter can contain a time range in which all events with timestamps outside this range are filtered and not shown and not used in any statistical calculations. The range is defined as all timestamps between a 'from' time to the 'to' time. If nothing is specified in the 'to' field, the range goes to the end of the trace. Similar for the 'from' field, if not specified the range starts from the start of the trace.</p>
+    <br></br>
+    <Image src="/images/help-img-datetime.png" alt="Filters" width={500} height={500} />
+    <br /><br />
+    <p style={{ padding: '10px', backgroundColor: '#d9edf7', borderRadius: '3px' }}>By default, the 'from' date is populated and set to the date of the recent Saturday.</p>
+    <p>The date format is dd/mm/yyyy hh:mm:ss.</p>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+      <h4>Max Lines Filter</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>This filter allows you to control the number of lines returned per call. Max lines retrieved in one call can be between 1-5000 events.</p>
+    <p style={{ padding: '10px', backgroundColor: '#d9edf7', borderRadius: '3px' }}>By default, the max line filter is set to 500 rows per call.</p>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+      <h4>Unknown Devices Filter</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>In a network, you might also see uplink events from unknown devices. By default, these events are listed. In case you do not want to see such events, just check the filter to skip.</p>
+    <p style={{ padding: '10px', backgroundColor: '#d9edf7', borderRadius: '3px' }}>By default, events from unknown devices will be visible.</p>
+  </div>
+</Cards> 
+
+
+
+
+
+
+
+                            
+
+

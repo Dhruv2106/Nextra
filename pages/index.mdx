@@ -1,0 +1,35 @@
+import Image from 'next/image'
+
+# Introduction
+
+The Orbiwise network solution comprises a number of server applications that manages different aspects of the network functionality. Each of these servers generate a log files with transactional data as well as statistics data and debugging information. The Orbiwise Server Logs Analyser and Viewer (OSLAV) Tool is a powerful tool that can read and analyze these logs file. This tool is also known as Trace. The tool allow the following basic features:
+<br></br>
+
+
+- Inspect all data being sent on the network.
+- Decoding of payload of all known (i.e., AppKey known) devices.
+- Graphical visualization in the time domain of any parameters (including payload data).
+- Flexible filtering of data. Filters can be:
+  - Simple textual match filters.
+  - Based on extracted information or on raw log file with all available information.
+  - Timestamp range.
+- Data extraction and export. Export selected data (parameters and/or payload data) to file for e.g., quick integration with Excel, Matlab, etc.
+- Web interface. Backend can run on a local PC (Windows/Linux/OSX) or on a remote server.
+<br></br>
+
+
+# Architecture Overview
+The figure below shows the overall architecture of the server application logging and Trace.
+
+
+
+ 
+<Image src="/images/help-img-architecture.png" alt="Trace_Architecture" width={1000} height={500} />
+
+Each of the Orbiwise server applications write data and debug information to a log-file that is stored locally on the server. Each Sunday at 24:00 each server will close its log-file and create a new one so that the logging information for each server is available in files with one week of logging information each.
+
+Trace processes both the current active log-files as well as the old log files. How far back (i.e. how many weeks of log-files) is customizable by the user. Trace backend continues to read and parse the log-files to extract the main information for viewing in a web-browser.
+
+Trace uses Mongodb for data storage purpose.
+
+

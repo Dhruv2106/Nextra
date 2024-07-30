@@ -1,0 +1,26 @@
+{
+    "index": {
+      "title": "Introduction",
+      "theme": {
+        "layout": "full"
+      }
+    },
+    "Filters": {
+        "title": "Filters",
+        "theme": {
+          "layout": "full"
+        }
+      },
+      "Events_ui": {
+        "title": "Events_UI",
+        "theme": {
+          "layout": "full"
+        }
+      },
+      "stastistics_ui": {
+        "title": "Statistics UI",
+        "theme": {
+          "layout": "full"
+        }
+      }
+  }

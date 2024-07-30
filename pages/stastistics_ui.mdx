@@ -1,0 +1,267 @@
+import { Cards, Card } from 'nextra/components'
+
+# Trace - Statistics Page
+
+This page lets you analyse the statistics for devices and gateways. The data is displayed in tables and charts.
+
+<Cards style={{ display: 'block', width: '70%', marginBottom: '20px'}}>
+
+  <div style={{ padding: '10px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <tbody>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>EndPoint</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>/stats</td>
+        </tr>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>Filters supported</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Event, Gateways, Deveui, DevAddr, From date, To date</td>
+        </tr>
+        <tr>
+          <th style={{ border: '1px solid black',  color: 'black', padding: '8px' }}>Must have Filters</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>From date, To date along with either Gateway or Deveui/Devaddr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '100%', border: '1px solid #ffc107', borderRadius: '5px', marginBottom: '20px', backgroundColor: '#fff3cd', padding: '10px' }}>
+  <div style={{ color: '#856404', fontSize: '16px', fontWeight: 'bold' }}>
+    <span role="alert">This page must have certain filters to see the results.</span>
+  </div>
+</Cards>
+
+# User interface
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Devices</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>A view of devices table when - </p>
+    <div style={{ border: '1px solid #d1ecf1', backgroundColor: '#d1ecf1', padding: '10px', borderRadius: '5px', marginBottom: '20px', color: '#0c5460' }}>
+      Filters chosen - From date, To date, Deveui
+    </div>
+    <img src="trace_manual_imgs/help-img-devices.png" alt="" style={{ maxWidth: '100%', height: 'auto' }} />
+
+    <h5>Columns in table </h5>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', marginBottom: '10px' }}>List of Columns in device table</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Column</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Column</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DevAddr</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Device address</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DevEUI</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Unique device id</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL Frame cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Uplink events received during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL bytes</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Sum of all message length for all uplink events</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DL Frame cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Downlink scheduled during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DL bytes</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Sum of all message length for all downlink events</td>
+        </tr>
+        <tr>
+         <td style={{ border: '1px solid black', padding: '8px' }}>UL Duty cycle%</td>
+         <td style={{ border: '1px solid black', padding: '8px' }}>Duty cycle percentage for uplinks. This is calculated as<br /><code><var>duty%</var> = (<var>Sum(ToA of all UL)</var> / <var>(toDate-fromDate) in seconds</var>) * 100</code></td>
+         <td style={{ border: '1px solid black', padding: '8px' }}>DL Duty cycle%</td>
+         <td style={{ border: '1px solid black', padding: '8px' }}>Duty cycle percentage for downlinks. This is calculated as<br /><code><var>duty%</var> = (<var>Sum(ToA of all DL)</var> / <var>(toDate-fromDate) in seconds</var>) * 100</code></td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Lost Frames Cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Number of lost frames during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>FER%</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Frame error rate during the selected datetime range</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Avr RSSI(dBm)</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Average RSSI in dBm</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Avr SNR(dB)</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Average SNR in dB</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Used SF</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Spreading factor used for all events. <br />On hover, you can also see the breakup of frame counts for each SF.</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Last Seen</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>The latest time when trace received any event for this device</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Gateways</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>A view of Gateways table when - </p>
+    <div style={{ border: '1px solid #d1ecf1', backgroundColor: '#d1ecf1', padding: '10px', borderRadius: '5px', marginBottom: '20px', color: '#0c5460' }}>
+      Filters chosen - From date, To date, Deveui
+    </div>
+    <img src="/images/help-img-gateways.png" alt="" style={{ maxWidth: '100%', height: 'auto' }} />
+    <p style={{ marginTop: '10px' }}>Multiple gateways are listed because there was a filter on device and all of the gateways receiving that device would be displayed.</p>
+
+    <h5>Columns in table</h5>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', marginBottom: '10px' }}>List of Columns in Gateways table</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Column</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Column</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Gateway Id</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Gateway id</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Gateway Name</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Gateway name if available</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL Frame cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Uplink events received during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL bytes</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Sum of all message length for all uplink events</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DL Frame cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Downlink scheduled during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>DL bytes</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Sum of all message length for all downlink events</td>
+        </tr>
+        <tr>
+        <td style={{ border: '1px solid black', padding: '8px' }}>UL Duty cycle%</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Duty cycle percentage for uplinks. This is calculated as<br /><code><var>duty%</var> = (<var>Sum(ToA of all UL)</var> / <var>(toDate-fromDate) in seconds</var>) * 100</code></td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>DL Duty cycle%</td>
+        <td style={{ border: '1px solid black', padding: '8px' }}>Duty cycle percentage for downlinks. This is calculated as<br /><code><var>duty%</var> = (<var>Sum(ToA of all DL)</var> / <var>(toDate-fromDate) in seconds</var>) * 100 </code></td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Lost Frames Cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Number of lost frames during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>FER%</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Frame error rate during the selected datetime range</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Avr RSSI(dBm)</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Average RSSI in dBm</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Avr SNR(dB)</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Average SNR in dB</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Last Seen</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>The latest time when trace received any event for this device</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}></td>
+          <td style={{ border: '1px solid black', padding: '8px' }}></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Unknown Receptions</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>A view of Unknown Devices table when - </p>
+    <div style={{ border: '1px solid #d1ecf1', backgroundColor: '#d1ecf1', padding: '10px', borderRadius: '5px', marginBottom: '20px', color: '#0c5460' }}>
+      Filters chosen - From date, To date, Gateway
+    </div>
+    <img src="images/help-img-unknown.png" alt="" style={{ maxWidth: '100%', height: 'auto' }} />
+    <p style={{ marginTop: '10px' }}>A gateway can receive data from devices which are not registered on the network. Receptions from such devices are marked as unknown. These are displayed in the table when a gateway stats is loaded.</p>
+    <h5>Columns in table</h5>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <caption style={{ captionSide: 'top', fontWeight: 'bold', marginBottom: '10px' }}>List of Columns in unknown devices table</caption>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Column</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Column</th>
+          <th style={{ border: '1px solid black', backgroundColor: 'black', color: 'white', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL Frame cnt</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Uplink events received during the selected datetime range</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>UL bytes</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Sum of all message length for all uplink events</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Avr RSSI(dBm)</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Average RSSI in dBm</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Avr SNR(dB)</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Average SNR in dB</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Used SF</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Spreading factor used.</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Last Seen</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>The latest time when trace received any event for this device</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Device Charts</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>If you click the (+) sign in the first column for the row, trace will open and load the charts for devices.</p>
+    <div id="deviceChartsCarousel" style={{ display: 'block', width: '100%', margin: '0 auto' }} data-bs-ride="carousel">
+      <div>
+        <div style={{ display: 'block', textAlign: 'center' }}>
+            <img src="/images/help-img-ch-d-rssi.png" style={{ width: '100%' }} alt="RSSI Histograms" />
+            <div style={{ color: 'black', padding: '5px', textAlign: 'center' }}>
+            <h5 style={{ margin: '0' }}>RSSI Histograms</h5>
+            <p style={{ margin: '0' }}>RSSI Histogram where y axis is counts of UL. The bins are of 10 units of RSSI each.</p>
+        </div>
+      </div>
+    </div>  
+   </div> 
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>Gateway Charts</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>If you click the (+) sign in the first column for the row, trace will open and load the charts for gateways.</p>
+    <div  style={{ display: 'block', width: '100%', margin: '0 auto' }}>
+      <div style={{ position: 'relative' }}>
+        <div style={{ display: 'block', textAlign: 'center' }}>
+          <img src="/images/help-img-ch-g-rssi.png" style={{ width: '100%' }} alt="RSSI Histograms" />
+          <div style={{ color: 'black', padding: '5px', textAlign: 'center' }}>
+            <h5 style={{ margin: '0' }}>RSSI Histograms</h5>
+            <p style={{ margin: '0' }}>RSSI Histogram where y axis is counts of UL. The bins are of 5 units of RSSI each.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Cards>
+
+
+
+

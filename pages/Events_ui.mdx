@@ -1,0 +1,197 @@
+import { Cards, Card } from 'nextra/components'
+import Image from 'next/image'
+
+# Trace - Events Page
+
+This page let's you view and analyse all events stored by trace in near real time.
+
+<Cards style={{ display: 'block', width: '70%', marginBottom: '20px' }}>
+  <div style={{ padding: '10px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <tbody>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>EndPoint</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>/trace</td>
+        </tr>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>Filters supported</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>All - Event, Gateways, Deveui, DevAddr, Cmd, From date, To date, Max lines, Skip Unknown</td>
+        </tr>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>Default Sorting</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Latest event first</td>
+        </tr>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>Default view</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Aggregated</td>
+        </tr>
+        <tr>
+          <th style={{ border: '1px solid black', color: 'black', padding: '8px' }}>Available Columns</th>
+          <td style={{ border: '1px solid black', padding: '8px' }}>
+            <p>timestamp, event, gateway, deveui, devaddr, cmd, fcnt, fport, message, rssi, snr, freq, sf.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards>
+
+
+<Cards style={{ display: 'block', width: '100%', border: '1px solid rgb(190, 229, 235)', borderRadius: '5px', marginBottom: '20px', backgroundColor: 'rgb(209, 236, 241)', padding: '10px' }}>
+  <div style={{ color: 'rgb(12, 84, 96)', fontSize: '16px', fontWeight: 'bold' }}>
+    <span>Column etime is hidden by default.</span>
+  </div>
+</Cards>
+
+# User Interface
+This is a random view of events. The filters on the page which can be utilized to filter the search results.
+
+<Image src="/images/help-img-eventpage.png" alt="Filters" width={1000} height={500} />
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>1. Filters</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>All of the filters for this page are available and explained in section - <a href="">Filters</a></p>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <h4>2. Action buttons - Left side</h4>
+      <img src="/images/help-img-leftbuttons.png" alt="" style={{ Width: '200px' }} />
+    </div>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+      <thead style={{ backgroundColor: '#343a40', color: 'white' }}>
+        <tr>
+          <th style={{ border: '1px solid black', padding: '8px' }}>Button</th>
+          <th style={{ border: '1px solid black', padding: '8px' }}>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Sorting</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}><p>The 'Time' button allows you to alter the sorting of the results.</p>By default, the newest result will be on top which you can alter by toggling the time button. After toggle, the oldest record will be on top. This sorting is done only on the records loaded into the view and not on the backend search.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Export data</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>The button 'Export Data' exports the current loaded records in event view to a CSV file and downloads it at the user's end.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Go to Bottom</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>The 'Go to Bottom' button allows you to navigate to the last loaded result of filtered search.</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Get Link to Trace</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>
+            The 'Get link to trace' captures the current state of events page and prepares a link. You can share this link with someone whom you want to showcase the exact same view you are seeing.
+          </td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid black', padding: '8px' }}>Load xxx more</td>
+          <td style={{ border: '1px solid black', padding: '8px' }}>
+            <p>Event view pagination does not work page wise or the traditional model of pagination. The idea of Trace is to analyze the logs in near real time or to diagnose a problem using logs of a given time range.</p>
+            <p>Using the 'max lines' filter and 'Load xxx more' button, you can achieve pagination in your desired way. As explained in Filters section: Max Lines, max lines filter can be used to load up to 5000 records in per call to events. If there are more events available for your filters, The Load xxx more button will be enabled and you can click it again to load xxx records.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Cards> 
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <h4>3. Action Buttons - Right side</h4>
+      <img src="/images/help-img-rightbuttons.png" alt="" style={{ Width: '200px' }} />
+    </div>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>Let's see what each of the button does..</p>
+    <Cards style={{ marginBottom: '20px', border: '1px solid black', borderRadius: '5px',display:"block" }}>
+      <div style={{ borderBottom: '1px solid black', backgroundColor: '#e9ecef', padding: '10px' }}>
+        <h4 style={{ margin: '0' }}>Eye</h4>
+      </div>
+      <div style={{ padding: '10px' }}>
+        <p>By default, all of the events in the results will have the same color for text. In case, you want to distinguish between events, click on this eye icon.</p>
+        <p>This will change the color of events and the new look would be similar to -</p>
+        <br></br>
+        <img src="/images/help-img-coloredevents.png" alt="" style={{ maxWidth: '100%' }} />
+        <br></br>
+      </div>
+    </Cards>
+    <Cards style={{ marginBottom: '20px', border: '1px solid black', borderRadius: '5px',display:"block" }}>
+      <div style={{ borderBottom: '1px solid black', backgroundColor: '#e9ecef', padding: '10px' }}>
+        <h4 style={{ margin: '0' }}>Switch to linear view</h4>
+      </div>
+      <div style={{ padding: '10px' }}>
+        <p>There can be multiple receptions for each uplink from multiple gateways. All of these receptions are clubbed into one and shown as aggregated view.</p>
+        <p>To show the events without this aggregation, click this button and the events will look similar to -</p>
+        <br></br>
+        <img src="/images/help-img-linearview.png" alt="" style={{ maxWidth: '100%' }} />
+        <br></br>
+      </div>
+    </Cards>
+    <Cards style={{ marginBottom: '20px', border: '1px solid black', borderRadius: '5px',display:"block" }}>
+      <div style={{ borderBottom: '1px solid black', backgroundColor: '#e9ecef', padding: '10px' }}>
+        <h4 style={{ margin: '0' }}>Columns</h4>
+      </div>
+      <div style={{ padding: '10px' }}>
+        <p>The 'Columns' button allows you to choose which columns to show on the view and which to hide. These columns are - timestamp, event, gateway, deveui, devaddr, cmd, fcnt, fport, message, rssi, snr, freq, and sf.</p>
+        <p>If you click on the columns button, you will be able to see the view below.</p>
+        <br></br>
+        <img src="images/help-img-columnsview.png" alt="" style={{ maxWidth: '100%' }} />
+        <br></br>
+        <p style={{ padding: '10px', backgroundColor: 'rgb(209, 236, 241)', borderRadius: '3px',color: 'rgb(12, 84, 96)' }}>By default, etime column is not checked.</p>
+        <br></br>
+        <p>Only checked column(s) in the view below are shown. Any column can be made hidden by unchecking the box.</p>
+      </div>
+    </Cards>
+  </div>
+</Cards>
+
+<Cards style={{ display: 'block', width: '1000px', border: '1px solid black', borderRadius: '5px', marginBottom: '20px' }}>
+  <div style={{ borderBottom: '1px solid black', backgroundColor: '#f2f2f2', padding: '10px' }}>
+    <h4>4. Results table</h4>
+  </div>
+  <div style={{ padding: '10px' }}>
+    <p>The table shows the results for given filters.</p>
+    <p>There are a few special features with the results table.</p>
+    
+    <h5>Seeing the Raw Line</h5>
+    <div>
+      <p>If you want to see the raw line using which a record is generated, double click on the row in the table.</p>
+      <br></br>
+      <br></br>
+      <img src="/images/help-img-rawlinestr.png" alt="" style={{ maxWidth: '100%' }} />
+      <br></br>
+      <p style={{ padding: '10px', backgroundColor: '#d9edf7', borderRadius: '3px' }}>You can double click to hide the row again.</p>
+    </div>
+    <br></br>
+    <h5>Seeing the Raw Records Before and After the Raw Line</h5>
+    <div>
+      <p>To view, click on the number in the first column of the row.</p>
+      <br></br>
+      <br></br>
+      <img src="/images/help-img-rawlines.png" alt="" style={{ maxWidth: '100%' }} />
+      <br></br>
+      <p style={{ padding: '10px', backgroundColor: '#d9edf7', borderRadius: '3px' }}>You can click the number again to hide the records again.</p>
+    </div>
+    <br></br>
+    <h5>Aggregated View</h5>
+    <div>
+      <p>By default, the results are viewed in an aggregated view. If you click on the three dots under the first column of a row, it will open up the remaining receptions for that uplink.</p>
+      <br></br>
+      <br></br>
+      <img src="trace_manual_imgs/help-img-aggregatedview.png" alt="" style={{ maxWidth: '100%' }} />
+      
+    </div>
+  </div>
+</Cards>
+
+
+
